@@ -3,8 +3,12 @@
 be deﬁned in four diﬀerent ways using pattern matching.
 --}
 
-v :: Bool -> Bool 
-True v True = True
-True v False = False
-False v True = True
-False v False = False
+(|||) :: Bool -> Bool -> Bool
+True ||| True = True
+True ||| False = True
+False ||| True = True
+False ||| False = False
+
+(\/) :: Bool -> Bool -> Bool
+False \/ b = b
+True \/ _ = True

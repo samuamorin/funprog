@@ -17,6 +17,7 @@ import Prelude
     , error
     , otherwise
     )
+import Data.Time (DayOfWeek(Tuesday))
 
 -- Define evenerything that is undefined,
 -- without using standard Haskell functions.
@@ -25,8 +26,8 @@ import Prelude
 data Bool = False | True
 
 instance Show Bool where
-
-    show = undefined
+    show False = "False"
+    show True = "True"
 
 instance Enum Bool where
 
@@ -36,25 +37,29 @@ instance Enum Bool where
 
 -- conjunction (AND)
 (&&) :: Bool -> Bool -> Bool
-(&&) = undefined
+True && True = True
+_ && _ = False
 
 infixr 3 &&
 
 -- disjunction (OR)
 (||) :: Bool -> Bool -> Bool
-(||) = undefined
+False || False = False
+_ || _ = True
 
 infixr 2 ||
 
 -- NAND (Sheffer stroke)
 (/|\) :: Bool -> Bool -> Bool
-(/|\) = undefined
+True /|\ True = False
+_ /|\ _ = True
 
 infixr 2 /|\
 
 -- NOR (aka: Peirce arrow or Quine dagger)
 (\|/) :: Bool -> Bool -> Bool
-(\|/) = undefined
+False \|/ False = True
+_ \|/ _ = False
 
 infixr 2 \|/
 

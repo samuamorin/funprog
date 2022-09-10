@@ -31,51 +31,60 @@ instance Show Bool where
 
 instance Enum Bool where
 
-    toEnum  = undefined
+    toEnum 0 = False
+    toEnum 1 = True
 
-    fromEnum  = undefined
+    fromEnum False = 0
+    fromEnum True = 1
+
 
 -- conjunction (AND)
 (&&) :: Bool -> Bool -> Bool
 True && True = True
-_ && _ = False
+_    &&    _ = False
 
 infixr 3 &&
 
 -- disjunction (OR)
 (||) :: Bool -> Bool -> Bool
 False || False = False
-_ || _ = True
+_     ||     _ = True
 
 infixr 2 ||
 
 -- NAND (Sheffer stroke)
 (/|\) :: Bool -> Bool -> Bool
 True /|\ True = False
-_ /|\ _ = True
+_    /|\    _ = True
 
 infixr 2 /|\
 
 -- NOR (aka: Peirce arrow or Quine dagger)
 (\|/) :: Bool -> Bool -> Bool
 False \|/ False = True
-_ \|/ _ = False
+_     \|/     _ = False
 
 infixr 2 \|/
 
 -- XOR (exclusive disjunction)
 (<=/=>) :: Bool -> Bool -> Bool
-(<=/=>) = undefined
+False <=/=> False = False
+True  <=/=>  True = False
+_     <=/=>    _  = True
 
 infixr 2 <=/=>
 
 -- boolean negation
 not :: Bool -> Bool
-not = undefined
+not True  = False
+not False = True  
 
 -- if-then-else expression
 ifThenElse :: Bool -> a -> a -> a
-ifThenElse = undefined
+ifThenElse True  x y = x
+ifThenElse False x y = y
+
+
 
 -- logical "implies"
 (==>) :: Bool -> Bool -> Bool

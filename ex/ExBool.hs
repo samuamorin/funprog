@@ -33,6 +33,7 @@ instance Enum Bool where
 
     toEnum 0 = False
     toEnum 1 = True
+    toEnum _ = error "Value not defined"
 
     fromEnum False = 0
     fromEnum True = 1
@@ -88,19 +89,22 @@ ifThenElse False x y = y
 
 -- logical "implies"
 (==>) :: Bool -> Bool -> Bool
-(==>) = undefined
+True  ==> x = x
+False ==> _ = True
 
 infixr 1 ==>
 
 -- logical "implied by"
 (<==) :: Bool -> Bool -> Bool
-(<==) = undefined
+_ <== False = True
+x <== True  = True
 
 infixl 1 <==
 
 -- logical equivalence
 (<=>) :: Bool -> Bool -> Bool
-(<=>) = undefined
+False <=> False = True
+x     <=>     y = x && y
 
 infixr 1 <=>
 

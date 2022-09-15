@@ -29,7 +29,8 @@ instance Show Nat where
 
     -- zero  should be shown as O
     -- three should be shown as SSSO
-    show = undefined
+    show Zero = "O"
+    show (Succ a) = "S" ++ show a 
 
 instance Eq Nat where
 

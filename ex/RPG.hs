@@ -7,7 +7,7 @@ module RPG where
 -- current and total HP (hit points)
 -- current and total MP (mana points)
 -- current and total GP (gold pieces)
-data Character
+data Character = Character [Char] 
 
 -- does that make sense?
 type Party = [Character]

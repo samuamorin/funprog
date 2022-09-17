@@ -43,14 +43,16 @@ type Party = [Character]
 
 -- gets a character and returns one that is the same but +1 level
 gainLevel :: Character -> Character
-gainLevel c = c {level = ((level c) + 1)}
+gainLevel c = c {level = (level c) + 1}
 
 -- to be used when a character is hit
-hitCharacter :: undefined
-hitCharacter = undefined
+hitCharacter :: Character -> Character
+hitCharacter c = c {totalHp = (totalHp c) - 1}
 
 alive :: Character -> Bool
-alive = undefined
+alive c 
+      | (totalHp c > 0) = True
+      | otherwise = False
 
 
 -- How would you implement skills and spells?

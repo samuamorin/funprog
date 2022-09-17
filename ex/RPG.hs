@@ -43,7 +43,7 @@ type Party = [Character]
 
 -- gets a character and returns one that is the same but +1 level
 gainLevel :: Character -> Character
-gainLevel c = c {level = (level c) + 1}
+gainLevel c = c {level = ((level c) + 1)}
 
 -- to be used when a character is hit
 hitCharacter :: undefined
@@ -65,6 +65,7 @@ skills = undefined
 spells :: Character -> [Spell]
 spells = undefined
 
---let player1 = Character {name = "player1", race = Zombie, classe = Thief, xp = 1, level = 1, strength = (Strength 1), intelligence = (Intelligence 1), wisdow = (Wisdow 1), dexterity = (Dexterity 10),constitution = (Constitution 5),charisma = (Charisma 50),totalHp = 0,totalMp = 0,totalGp = 0}
+getPlayer::String -> Int -> Character
+getPlayer name level= Character {name = name, race = Zombie, classe = Thief, xp = 1, level = level, strength = (Strength 1), intelligence = (Intelligence 1), wisdow = (Wisdow 1), dexterity = (Dexterity 10),constitution = (Constitution 5),charisma = (Charisma 50),totalHp = 0,totalMp = 0,totalGp = 0}
 
 --let player = Character{name = " player1"}
